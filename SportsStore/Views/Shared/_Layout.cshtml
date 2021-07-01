@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportsStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+    <link rel="stylesheet" href="~/css/site.css " />
+</head>
+<body>
+
+    <! -- --------------------------------BREAK -->
+
+    <nav class="navbar navbar-inverse navbar-expand-sm navbar-toggleable-sm bg-info justify-content-between border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand text-white" asp-area="" asp-controller="BookWebInfo" asp-action="Index"> 
+                <div class="float-right">LOGOPHILE SYSTEMS</div>
+            </a>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav flex-grow">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="BookWebInfo" asp-action="BusinessInfo"> ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="BookWebInfo" asp-action="FAQ"> FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="BookWebInfo" asp-action="NewsReleases"> NEWS RELEASES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="List"> CATALOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="BookWebInfo" asp-action="Privacy">PRIVACY</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="float-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-3">
+                @await Component.InvokeAsync("NavigationMenu")
+            </div>
+            <div class="col col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <! -- --------------------------------BREAK -->
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - LOGOPHILE SYSTEMS - <a asp-area="" asp-controller="BookWebInfo" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
